@@ -5,13 +5,13 @@ from pydantic import BaseModel
 
 # Shared properties
 class ModelBase(BaseModel):
-    title: Optional[str] = None
+    name: Optional[str] = None
     description: Optional[str] = None
 
 
 # Properties to receive on model creation
 class ModelCreate(ModelBase):
-    title: str
+    name: str
 
 
 # Properties to receive on model update
@@ -22,7 +22,7 @@ class ModelUpdate(ModelBase):
 # Properties shared by models stored in DB
 class ModelInDBBase(ModelBase):
     id: int
-    title: str
+    name: str
     owner_id: int
 
     class Config:
